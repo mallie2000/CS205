@@ -116,10 +116,6 @@ def depthFirstSearch(problem):
                 if(str(state) not in visited):
                     new_path = path + [direction]
                     stack.push((state,new_path))
-
-
-
-
     util.raiseNotDefined()
 
 def breadthFirstSearch(problem):
@@ -130,6 +126,40 @@ def breadthFirstSearch(problem):
 def uniformCostSearch(problem):
     """Search the node of least total cost first."""
     "*** YOUR CODE HERE ***"
+    # check if start state is goal state
+    if problem.isGoalState(problem.getStartState()):
+        return []
+
+    pq = util.PriorityQueue()
+    visited = set()
+    cost = 0
+    item = (problem.getStartState(), [], cost)
+    pq.push(item, cost)
+
+    while not pq.isEmpty():
+        state, path, old_cost = pq.pop()
+
+        # Mark the state as visited only if it's not the goal state
+        if state not in visited:
+            visited.add(state)
+
+            if problem.isGoalState(state):
+                return path
+
+            children = problem.getSuccessors(state)
+
+            if children:
+                for child_state, direction, child_cost in children:
+                    if child_state not in visited:
+                        new_path = path + [direction]
+                        new_cost = child_cost + old_cost
+                        new_item = (child_state, new_path, new_cost)
+                        pq.push(new_item, new_cost)
+
+    return False
+
+
+
     util.raiseNotDefined()
 
 def nullHeuristic(state, problem=None):
