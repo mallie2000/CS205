@@ -8,3 +8,30 @@ No Pacman only visits the nodes that lead him to his goal.
 ## Question 2
 ### Is DFS a least-cost solution? Explain your answer.
 No, DFS is not the least-cost solution here because it prioritizes exploration over cost. DFS explores one path deeply before backtracking and trying another which can lead it down long, expensive paths even if shorter, cheaper ones exist elsewhere.
+Question 1:
+ 
+ <img width="314" alt="image" src="https://github.com/mallie2000/CS205/assets/66195989/1c8577dd-d457-476e-8db0-ee783852ae1e">
+ <img width="452" alt="image" src="https://github.com/mallie2000/CS205/assets/66195989/8e5fb912-e663-457e-b7da-a9e8b071a05e">
+
+
+
+Question 2:
+
+ 
+ 
+
+Question 3:
+
+ 
+ 
+
+
+
+
+
+
+
+Question 4:
+
+ 
+
