@@ -92,31 +92,22 @@ def depthFirstSearch(problem):
     if problem.isGoalState(problem.getStartState()):
         return []
     
-    path = []
     visited = dict()
     stack = util.Stack()
     stack.push((problem.getStartState(),[]))
 
-    while True:
-        #All states were explored and no path was found
-        if stack.isEmpty():
-            return False
-        
+    while not stack.isEmpty():
         state,path = stack.pop()
-        visited[str(state)] = 1
 
         if problem.isGoalState(state):
             return path
         
-        children = problem.getSuccessors(state)
-
-        #check that there are potential paths
-        if children:
+        if(str(state) not in visited):
+            visited[str(state)] = 1
+            children = problem.getSuccessors(state)
             for state,direction,cost in children:
-                if(str(state) not in visited):
-                    new_path = path + [direction]
-                    stack.push((state,new_path))
-    util.raiseNotDefined()
+                new_path = path + [direction]
+                stack.push((state,new_path))
 
 def breadthFirstSearch(problem):
     """Search the shallowest nodes in the search tree first."""
@@ -168,8 +159,6 @@ def uniformCostSearch(problem):
 
     while not pq.isEmpty():
         state, path, old_cost = pq.pop()
-
-        # Mark the state as visited only if it's not the goal state
         if state not in visited:
             visited.add(state)
 
@@ -177,20 +166,14 @@ def uniformCostSearch(problem):
                 return path
 
             children = problem.getSuccessors(state)
-
-            if children:
-                for child_state, direction, child_cost in children:
-                    if child_state not in visited:
-                        new_path = path + [direction]
-                        new_cost = child_cost + old_cost
-                        new_item = (child_state, new_path, new_cost)
-                        pq.push(new_item, new_cost)
+            for child_state, direction, child_cost in children:
+                if child_state not in visited:
+                    new_path = path + [direction]
+                    new_cost = child_cost + old_cost
+                    new_item = (child_state, new_path, new_cost)
+                    pq.push(new_item, new_cost)
 
     return False
-
-
-
-    util.raiseNotDefined()
 
 def nullHeuristic(state, problem=None):
     """
