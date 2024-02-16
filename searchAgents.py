@@ -288,6 +288,15 @@ class CornersProblem(search.SearchProblem):
         # Please add any code here which you would like to use
         # in initializing the problem
         "*** YOUR CODE HERE ***"
+        self.startingGameState = startingGameState
+        cornersVisited = [False, False, False, False]
+        
+        for i in range(len(self.corners)):
+            if self.startingPosition == self.corners[i]:
+                cornersVisited[i] = True
+                break 
+
+        self.startingState = (self.startingPosition, tuple(cornersVisited))
 
     def getStartState(self):
         """
@@ -295,6 +304,7 @@ class CornersProblem(search.SearchProblem):
         space)
         """
         "*** YOUR CODE HERE ***"
+        return self.startingState
         util.raiseNotDefined()
 
     def isGoalState(self, state):
@@ -302,6 +312,8 @@ class CornersProblem(search.SearchProblem):
         Returns whether this search state is a goal state of the problem.
         """
         "*** YOUR CODE HERE ***"
+        cornersVisited = state[1]       
+        return all(cornersVisited)  # Checks if all elements in the list are True
         util.raiseNotDefined()
 
     def getSuccessors(self, state):
@@ -325,6 +337,22 @@ class CornersProblem(search.SearchProblem):
             #   hitsWall = self.walls[nextx][nexty]
 
             "*** YOUR CODE HERE ***"
+            # Figure out whether a new position hits a wall
+            a,b = state[0]
+            da, db = Actions.directionToVector(action)
+            next_a, next_b = int(a + da), int(b + db)
+            hit_wall = self.walls[next_a][next_b]
+            
+            if not hit_wall:          
+                nextState = (next_a, next_b)
+                cornersVisited = list(state[1])
+                for i in range(len(self.corners)):
+                    if nextState == self.corners[i]:
+                        cornersVisited[i] = True
+                        break 
+                cost = 1
+                temp_tuple = (nextState, tuple(cornersVisited))
+                successors.append((temp_tuple, action, cost))
 
         self._expanded += 1 # DO NOT CHANGE
         return successors
