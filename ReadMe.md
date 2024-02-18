@@ -45,15 +45,26 @@ For question 6 the heuristic we use is the maximum distance from the current pos
 
 ## Question 4:
 
- <img width="452" alt="image" src="https://github.com/mallie2000/CS205/assets/66195989/fbe8edc7-7735-4b1f-8cca-a0b918ed97bc">
+<img width="452" alt="image" src="https://github.com/mallie2000/CS205/assets/66195989/fbe8edc7-7735-4b1f-8cca-a0b918ed97bc">
 
 <img width="452" alt="image" src="https://github.com/mallie2000/CS205/assets/66195989/cee123f1-f11c-465d-95a5-2e04a19c8939">
 
+
+
 ## Question 5:
-![q5](https://github.com/mallie2000/CS205/assets/90886440/d8ae636f-7813-4ce9-ab22-bff18c39c4d2)
+
+<img width="671" alt="q5_test" src="https://github.com/mallie2000/CS205/assets/66195989/67fe8dd2-ef1c-462e-8ba6-d21b675b8543">
+
+<img width="564" alt="q5" src="https://github.com/mallie2000/CS205/assets/66195989/41909957-d36a-4718-b77d-057f5108099d">
+
 
 ## Question 6:
-![q6](https://github.com/mallie2000/CS205/assets/90886440/6029976e-3f53-4724-a5fe-b36acb1c512e)
+
+<img width="551" alt="q6" src="https://github.com/mallie2000/CS205/assets/66195989/089ba0e1-ead5-4fc2-bbbe-112f20e38933">
+
+<img width="1360" alt="q6_test" src="https://github.com/mallie2000/CS205/assets/66195989/3b6af1e9-7ff7-454d-8eb2-7fe6a057b160">
+
+
 
 
 
