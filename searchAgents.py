@@ -10,7 +10,7 @@
 # (denero@cs.berkeley.edu) and Dan Klein (klein@cs.berkeley.edu).
 # Student side autograding was added by Brad Miller, Nick Hay, and
 # Pieter Abbeel (pabbeel@cs.berkeley.edu).
-
+import search
 
 """
 This file contains all of the agents that can be selected to control Pacman.  To
@@ -499,7 +499,14 @@ def foodHeuristic(state, problem):
     """
     position, foodGrid = state
     "*** YOUR CODE HERE ***"
-    return 0
+    foodList = foodGrid.asList()
+    # if food list empty
+    if not foodList:
+        return 0
+    #  farthest distance food
+    farthestFoodDist = max(mazeDistance(position, food, problem.startingGameState) for food in foodList)
+
+    return farthestFoodDist
 
 class ClosestDotSearchAgent(SearchAgent):
     "Search for all food using a sequence of searches"
@@ -530,6 +537,7 @@ class ClosestDotSearchAgent(SearchAgent):
         problem = AnyFoodSearchProblem(gameState)
 
         "*** YOUR CODE HERE ***"
+        return search.breadthFirstSearch(problem)
         util.raiseNotDefined()
 
 class AnyFoodSearchProblem(PositionSearchProblem):
@@ -563,9 +571,11 @@ class AnyFoodSearchProblem(PositionSearchProblem):
         The state is Pacman's position. Fill this in with a goal test that will
         complete the problem definition.
         """
-        x,y = state
+        x, y = state
 
-        "*** YOUR CODE HERE ***"
+        # Check if Pacman is at a food location
+        return (x, y) in self.food.asList()
+
         util.raiseNotDefined()
 
 def mazeDistance(point1, point2, gameState):
