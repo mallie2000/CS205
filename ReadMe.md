@@ -14,6 +14,13 @@ We implemented questions 5 and 6 during this week. For question 5 we created a 4
 
 For question 6 the heuristic we use is the maximum distance from the current position to any of the unvisited corners. Our heuristic is admissible since we only take the maximum distance of all the possible unvisited corners. Because of this design choice, our heuristic always returns a value that is less than the actual cost to the goal state. Our heuristic is also consistent since if we choose a path that leads right to a corner, then the actual cost C drops the heuristic by at most C.
 
+# Week 7 Progress
+For the CS205 - Artificial Intelligence course in week 7 we implemented questions 7 and 8 of the Pac-Man Project. 
+
+For question 7 we implemented the 'foodHeuristic' function which estimates the distance to the farthest piece of food from Pacman's current position. It first retrieves the list of food coordinates and checks if it's empty. If empty, it returns 0 (no food to reach). Otherwise, it calls a helper function mazeDistance for each food item to find the individual distances and returns the maximum distance, representing the farthest food. The 'mazeDistance' helper function calculates the maze distance between two points using the built-in search functions. It takes the starting and ending points, and the game state as input. It asserts that both points are not walls and then creates a search problem object with those points as start and goal. Finally, it uses breadth-first search (BFS) to find the shortest path and returns its length as the maze distance.
+
+For question 8 we implemented 'findPathToClosestDot'. This function takes the current game state as input and aims to find a path (a sequence of actions) for Pac-Man to reach the closest food dot. It retrieves relevant information from the game state like Pac-Man's position, food locations, and walls. Then, it utilizes the 'AnyFoodSearchProblem' class to define the search problem and utilizes our previously made 'breadthFirstSearch' function to find the shortest path to any food location. 'AnyFoodSearchProblem' inherits from the 'PositionSearchProblem' class and defines a specific search problem for finding food. It stores essential information like food locations, walls, and Pac-Man's starting position. Importantly, it overrides the isGoalState method to check if Pac-Man's current position is on top of a food dot, effectively defining the goal state for the search algorithm. By utilizing this problem definition, the 'findPathToClosestDot' function can leverage the search algorithm to find the sub optimal path to reach any food, not necessarily the closest one.
+
 
 # Output
 
@@ -54,6 +61,16 @@ For question 6 the heuristic we use is the maximum distance from the current pos
 
 ## Question 6:
 ![q6](https://github.com/mallie2000/CS205/assets/90886440/6029976e-3f53-4724-a5fe-b36acb1c512e)
+
+
+## Question 7:
+<img width="579" alt="Screenshot 2024-02-23 at 10 13 08 PM" src="https://github.com/mallie2000/CS205/assets/66195989/e62a890e-088b-409a-b345-36303acca794">
+
+
+## Question 8:
+<img width="556" alt="Screenshot 2024-02-23 at 10 13 52 PM" src="https://github.com/mallie2000/CS205/assets/66195989/55b2fe74-b23b-4c78-a3c7-2ad9eea181b7">
+
+
 
 
 
