@@ -64,10 +64,12 @@ For question 8 we implemented 'findPathToClosestDot'. This function takes the cu
 
 
 ## Question 7:
+<img width="508" alt="Screenshot 2024-02-23 at 10 14 17 PM" src="https://github.com/mallie2000/CS205/assets/66195989/ed9fb4ad-d717-49f8-9b17-247dc2c920f9">
 <img width="579" alt="Screenshot 2024-02-23 at 10 13 08 PM" src="https://github.com/mallie2000/CS205/assets/66195989/e62a890e-088b-409a-b345-36303acca794">
 
 
 ## Question 8:
+<img width="525" alt="Screenshot 2024-02-23 at 10 14 35 PM" src="https://github.com/mallie2000/CS205/assets/66195989/118412c7-9800-4066-9da9-f772d5eecb63">
 <img width="556" alt="Screenshot 2024-02-23 at 10 13 52 PM" src="https://github.com/mallie2000/CS205/assets/66195989/55b2fe74-b23b-4c78-a3c7-2ad9eea181b7">
 
 
